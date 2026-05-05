@@ -10,7 +10,10 @@ const TaskForm = ({ refreshTasks, closeModal }) => {
 
   useEffect(() => {
     // Fetch users so Admin can assign the task
-    axios.get(`${API_URL}/api/auth/users`).then(res => setUsers(res.data));
+    await axios.post(
+  `${process.env.REACT_APP_API_URL}/api/tasks`,
+  formData
+);
   }, [API_URL]);
 
   const handleSubmit = async (e) => {
